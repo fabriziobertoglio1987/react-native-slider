@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import Slider from '../Slider';
 
 describe('<Slider />', () => {
-  it('renders enabled slider', () => {
+  it.only('renders enabled slider', () => {
     const tree = renderer.create(<Slider />).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -13,6 +13,14 @@ describe('<Slider />', () => {
 
   it('renders disabled slider', () => {
     const tree = renderer.create(<Slider disabled />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('accessibilityState disabled renders a disabled slider', () => {
+    const tree = renderer
+      .create(<Slider accessibilityState={{disabled: true}} />)
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
@@ -30,6 +38,7 @@ describe('<Slider />', () => {
           thumbTintColor={'green'}
           onSlidingComplete={() => {}}
           onValueChange={() => {}}
+          accessibilityState={{disabled: true}}
         />,
       )
       .toJSON();

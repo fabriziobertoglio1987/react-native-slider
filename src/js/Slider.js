@@ -263,11 +263,11 @@ const SliderComponent = (
       }
     : null;
 
+  console.log('props.disabled', props.disabled);
   const _disabled =
     props.disabled !== undefined
       ? props.disabled
       : props.accessibilityState?.disabled === true;
-  console.log('_disabled', _disabled);
 
   const _accessibilityState =
     props.disabled !== undefined
@@ -315,7 +315,6 @@ const SliderWithRef = React.forwardRef(SliderComponent);
  * and run Flow. */
 
 SliderWithRef.defaultProps = {
-  disabled: undefined,
   value: 0,
   minimumValue: 0,
   maximumValue: 1,
