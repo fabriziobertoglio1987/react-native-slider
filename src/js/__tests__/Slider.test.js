@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import Slider from '../Slider';
 
 describe('<Slider />', () => {
-  it.only('renders enabled slider', () => {
+  it('renders enabled slider', () => {
     const tree = renderer.create(<Slider />).toJSON();
 
     expect(tree).toMatchSnapshot();

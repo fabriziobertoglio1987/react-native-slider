@@ -300,6 +300,7 @@ const SliderComponent = (
       onRNCSliderSlidingStart={onSlidingStartEvent}
       onRNCSliderSlidingComplete={onSlidingCompleteEvent}
       onRNCSliderValueChange={onValueChangeEvent}
+      disabled={_disabled}
       enabled={!_disabled}
       onStartShouldSetResponder={() => true}
       onResponderTerminationRequest={() => false}
