@@ -263,7 +263,6 @@ const SliderComponent = (
       }
     : null;
 
-  console.log('props.disabled', props.disabled);
   const _disabled =
     props.disabled !== undefined
       ? props.disabled
