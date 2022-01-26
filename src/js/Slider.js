@@ -263,13 +263,8 @@ const SliderComponent = (
       }
     : null;
 
-  const _disabled =
-    props.disabled !== undefined
-      ? props.disabled
-      : props.accessibilityState?.disabled === true;
-
   const _accessibilityState =
-    props.disabled !== undefined
+    props.disabled !== props.accessibilityState?.disabled
       ? {...props.accessibilityState, disabled: props.disabled}
       : props.accessibilityState;
 
@@ -299,8 +294,7 @@ const SliderComponent = (
       onRNCSliderSlidingStart={onSlidingStartEvent}
       onRNCSliderSlidingComplete={onSlidingCompleteEvent}
       onRNCSliderValueChange={onValueChangeEvent}
-      disabled={_disabled}
-      enabled={!_disabled}
+      enabled={!props.disabled}
       onStartShouldSetResponder={() => true}
       onResponderTerminationRequest={() => false}
       accessibilityState={_accessibilityState}
@@ -315,6 +309,7 @@ const SliderWithRef = React.forwardRef(SliderComponent);
  * and run Flow. */
 
 SliderWithRef.defaultProps = {
+  disabled: false,
   value: 0,
   minimumValue: 0,
   maximumValue: 1,
